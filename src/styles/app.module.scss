@@ -1,0 +1,7 @@
+.appWrapper{
+    display: flex; //vai fazer o player e a homepage ficarem lado a lado
+
+    main {
+        flex: 1; //ocupa o máximo de espaço possível
+    }
+}

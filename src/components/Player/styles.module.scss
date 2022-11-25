@@ -1,0 +1,188 @@
+.playerContainer {
+  padding: 3rem 4rem;
+  width: 26.5rem;
+  height: 100vh; //ocupar todo o espaço da tela
+
+  background: var(--purple-500);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 1rem; //todos os elementos que estiverem dentro do header vão ter esse espaçamento
+    margin-bottom: auto;
+  }
+
+  strong {
+    font-family: Lexend, sans-serif;
+    font-weight: 600;
+  }
+
+  footer {
+    align-self: stretch; //como as outras classes priorizaram deixar tudo no centro, o stretch vai fazer o footer
+    //ocupar toda a largura disponível
+    margin-top: 4rem;
+
+    //quando ele estiver com a estilização empty
+    &.empty .progress {
+      opacity: 0.5;
+    }
+  }
+
+  @media (max-width: 600px) {
+    // min-height: 0;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    // z-index: 1;
+    width: 100%;
+    height: 10rem;
+    padding: 1rem 4rem;
+
+    header{
+      display: none;
+    }
+
+    .currentEpisode{
+      display: none;
+    }
+
+    .emptyPlayer{
+      display: none;
+    }
+
+    footer{
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.currentEpisode {
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2rem;
+    font: 600 1rem Lexend, sans-serif;
+    line-height: 1.75rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    opacity: 0.6;
+    line-height: 1.5rem;
+  }
+}
+
+.emptyPlayer {
+  width: 100%;
+  height: 16rem; //20
+  border: 1.5px dashed var(--purple-300);
+  border-radius: 1.5rem;
+  background: linear-gradient(143.8deg,
+      rgba(145, 100, 250, 0.8) 0%,
+      rgba(0, 0, 0, 0) 100%);
+
+  padding: 4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  //começo do player(o timer inicial e final do podcast)
+  span {
+    display: inline-block;
+    width: 4rem;
+    text-align: center;
+  }
+
+  .slider {
+    flex: 1;
+
+    //a barra central divisória entre os 2 span
+    .emptySlider {
+      width: 100%;
+      height: 4px;
+      background: var(--purple-300);
+      border-radius: 2px;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 0; //serve para resetar o tamanho da font do button, nos casos onde só tem uma img dentro
+    //ela será centralizada
+    //por padrão ele vai tentar alinhar a img com o font-size do button, então se estiver em 0 ficará centralizado
+    transition: 0.2s;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.7);
+    }
+
+    &.isActive {
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.isActive:hover {
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.playButton {
+      width: 4rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      background: var(--purple-400);
+
+      &:hover:not(:disabled) {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  @media ( max-width: 600px) {
+    margin-top: 0.5rem;
+  }
+} 
+
+.episodeName_SmallScreen{
+  display: none;
+
+  @media ( max-width: 600px) {
+    display: block;
+    margin: 0;
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}

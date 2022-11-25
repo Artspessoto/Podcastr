@@ -1,0 +1,91 @@
+.episode {
+  max-width: 48rem;
+  // padding: 3rem 2rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+
+  .thumbnailContainer {
+    position: relative;
+
+    img {
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    .backHome{
+        left: 0;
+        top: 50%;
+        background: var(--purple-500);
+        transform: translate(-50%, -50%);
+    }
+
+    .playEpisode {
+        right: 4.25rem;
+        top: 50%;
+        background: var(--green-500);
+        transform: translate(50%, -50%);
+      }
+
+    button {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      border: 0;
+      position: absolute;
+      z-index: 5; //para ficar acima da imagem
+      font-size: 0;
+
+      transition: filter 0.2s;
+
+    
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    span {
+      display: inline-block;
+      font-size: 0.875rem;
+
+      //todo span que antes deve tem um span (todo o span que não é o primeiro)
+      & + span {
+        margin-left: 1rem;
+        padding-left: 1rem;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 2px;
+          background: #ddd;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  .description{
+    margin-top: 1.5rem;
+    line-height: 1.675rem;
+    color: var(--gray-800);
+
+    p{
+        // margin: 1.5rem 0;
+        font-size: 0.9rem;
+    }
+  }
+}

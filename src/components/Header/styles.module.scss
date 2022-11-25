@@ -1,0 +1,39 @@
+.headerContainer {
+  background: var(--white);
+  height: 4.5rem; //6.5 antes
+
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem; //2rem vertical e 4 horizontal
+
+  border-bottom: 1px solid var(--gray-100);
+
+  p {
+    margin-left: 2rem;
+    padding: 0.25rem 0 0.25rem 2rem;
+    border-left: 1px solid var(--gray-100);
+  }
+
+  span {
+    margin-left: auto; //vai jogar o span lado a lado
+    text-transform: capitalize;
+  }
+
+  @media (max-width: 600px) {
+    padding: 2rem 2rem; //2rem vertical e 2 horizontal
+    height: 6.5rem;
+
+    p,
+    span {
+      font-size: 0.9rem;
+    }
+
+    p {
+      margin-left: 1rem;
+      padding: 0.25rem 0 0.25rem 2rem;
+    }
+    span {
+      margin-left: 1rem;
+    }
+  }
+}
